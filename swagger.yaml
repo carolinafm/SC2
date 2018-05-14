@@ -1,584 +1,585 @@
-swagger: '2.0'
+---
+swagger: "2.0"
 info:
-  description: No description
-  version: 1.0.0
-  title: ServiceCardAPI
+  description: "No description"
+  version: "1.0.0"
+  title: "ServiceCardAPI"
 consumes:
-  - application/json
+- "application/json"
 produces:
-  - application/json
+- "application/json"
 paths:
   /servicecard/subservices:
     get:
       parameters:
-        - name: creationDate
-          in: query
-          required: false
-          type: string
-          format: date
-          description: Creation date  of the sub services
-        - name: adge
-          in: query
-          required: false
-          type: string
-          description: ADGE Abbreviation
-        - name: serviceCode
-          in: query
-          required: false
-          type: string
-          description: Service Code
-        - name: locationToken
-          in: query
-          required: false
-          type: string
+      - name: "creationDate"
+        in: "query"
+        required: false
+        type: "string"
+        format: "date"
+        description: "Creation date  of the sub services"
+      - name: "adge"
+        in: "query"
+        required: false
+        type: "string"
+        description: "ADGE Abbreviation"
+      - name: "serviceCode"
+        in: "query"
+        required: false
+        type: "string"
+        description: "Service Code"
+      - name: "locationToken"
+        in: "query"
+        required: false
+        type: "string"
       responses:
-        '200':
-          description: Status 200
+        200:
+          description: "Status 200"
           schema:
-            type: object
+            type: "object"
             properties:
               adges:
-                $ref: '#/definitions/ADGEs'
+                $ref: "#/definitions/ADGEs"
 definitions:
   SubService:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the sub service in arabic
+        type: "string"
+        description: "Name of the sub service in arabic"
       nameEn:
-        type: string
-        description: Name of the sub service in english
+        type: "string"
+        description: "Name of the sub service in english"
       serviceCode:
-        type: string
-        description: Service Code
+        type: "string"
+        description: "Service Code"
       descriptionAr:
-        type: string
-        description: Description of the sub service in arabic
+        type: "string"
+        description: "Description of the sub service in arabic"
       descriptionEn:
-        type: string
-        description: Description of the sub service in english
+        type: "string"
+        description: "Description of the sub service in english"
       creationDate:
-        type: string
-        format: date
-        description: CreationDate of the sub service
+        type: "string"
+        format: "date"
+        description: "CreationDate of the sub service"
       isGeneralPublicService:
-        type: boolean
-        description: Indicates if the subservice is a general public service
+        type: "boolean"
+        description: "Indicates if the subservice is a general public service"
       shortTextAr:
-        type: string
-        description: Short Text of the sub service in arabic
+        type: "string"
+        description: "Short Text of the sub service in arabic"
       shortTextEn:
-        type: string
-        description: Short Text of the sub service in english
+        type: "string"
+        description: "Short Text of the sub service in english"
       serviceTermsAndConditionsAr:
-        type: string
-        description: Service Terms and Conditions of the sub service in arabic
+        type: "string"
+        description: "Service Terms and Conditions of the sub service in arabic"
       serviceTermsAndConditionsEn:
-        type: string
-        description: Service Terms and Conditions of the sub service in english
+        type: "string"
+        description: "Service Terms and Conditions of the sub service in english"
       channels:
-        $ref: '#/definitions/Channels'
+        $ref: "#/definitions/Channels"
       processSteps:
-        $ref: '#/definitions/ProcessSteps'
+        $ref: "#/definitions/ProcessSteps"
       feeGroups:
-        $ref: '#/definitions/FeeGroups'
+        $ref: "#/definitions/FeeGroups"
       requiredDocuments:
-        $ref: '#/definitions/RequiredDocuments'
+        $ref: "#/definitions/RequiredDocuments"
       relatedServices:
-        $ref: '#/definitions/RelatedServices'
+        $ref: "#/definitions/RelatedServices"
       externalLinks:
-        $ref: '#/definitions/ExternalLinks'
+        $ref: "#/definitions/ExternalLinks"
       serviceForms:
-        $ref: '#/definitions/ServiceForms'
+        $ref: "#/definitions/ServiceForms"
       processMaps:
-        $ref: '#/definitions/ProcessMaps'
+        $ref: "#/definitions/ProcessMaps"
       journeyMaps:
-        $ref: '#/definitions/JourneyMaps'
+        $ref: "#/definitions/JourneyMaps"
       otherAttributes:
-        $ref: '#/definitions/OtherAttributes'
+        $ref: "#/definitions/OtherAttributes"
   ADGE:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the ADGE in english
+        type: "string"
+        description: "Name of the ADGE in english"
       nameEn:
-        type: string
-        description: Name of the ADGE in arabic
+        type: "string"
+        description: "Name of the ADGE in arabic"
       descriptionAr:
-        type: string
-        description: Description of the ADGE in arabic
+        type: "string"
+        description: "Description of the ADGE in arabic"
       descriptionEn:
-        type: string
-        description: Description of the ADGE in english
+        type: "string"
+        description: "Description of the ADGE in english"
       aspectsOfLife:
-        $ref: '#/definitions/AspectsOfLife'
+        $ref: "#/definitions/AspectsOfLife"
       pillars:
-        $ref: '#/definitions/Pillars'
+        $ref: "#/definitions/Pillars"
       mainServices:
-        $ref: '#/definitions/MainServices'
+        $ref: "#/definitions/MainServices"
   AspectOfLife:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the aspect of life in arabic
+        type: "string"
+        description: "Name of the aspect of life in arabic"
       nameEn:
-        type: string
-        description: Name of the aspect of life in english
+        type: "string"
+        description: "Name of the aspect of life in english"
       subtopics:
-        $ref: '#/definitions/Subtopics'
+        $ref: "#/definitions/Subtopics"
       mainServices:
-        $ref: '#/definitions/MainServices'
+        $ref: "#/definitions/MainServices"
   Subtopic:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the subtopic in arabic
+        type: "string"
+        description: "Name of the subtopic in arabic"
       nameEn:
-        type: string
-        description: Name of the subtopic in english
+        type: "string"
+        description: "Name of the subtopic in english"
       mainServices:
-        $ref: '#/definitions/MainServices'
+        $ref: "#/definitions/MainServices"
   MainService:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the main service in arabic
+        type: "string"
+        description: "Name of the main service in arabic"
       nameEn:
-        type: string
-        description: Name of the main service in english
+        type: "string"
+        description: "Name of the main service in english"
       descriptionAr:
-        type: string
-        description: Description of the main service in arabic
+        type: "string"
+        description: "Description of the main service in arabic"
       descriptionEn:
-        type: string
-        description: Description of the main service in english
+        type: "string"
+        description: "Description of the main service in english"
       subservices:
-        $ref: '#/definitions/Subservices'
+        $ref: "#/definitions/Subservices"
       pillars:
-        $ref: '#/definitions/Pillars'
+        $ref: "#/definitions/Pillars"
   ADGEs:
-    type: object
+    type: "object"
     properties:
       adge:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/ADGE'
+          $ref: "#/definitions/ADGE"
   Subservices:
-    type: object
+    type: "object"
     properties:
       subservice:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/SubService'
+          $ref: "#/definitions/SubService"
   AspectsOfLife:
-    type: object
+    type: "object"
     properties:
       aspectOfLife:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/AspectOfLife'
+          $ref: "#/definitions/AspectOfLife"
   Subtopics:
-    type: object
+    type: "object"
     properties:
       subtopic:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Subtopic'
+          $ref: "#/definitions/Subtopic"
   Pillar:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the pillar in arabic
+        type: "string"
+        description: "Name of the pillar in arabic"
       nameEn:
-        type: string
-        description: Name of the pillar in english
+        type: "string"
+        description: "Name of the pillar in english"
   Pillars:
-    type: object
+    type: "object"
     properties:
       pillar:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Pillar'
+          $ref: "#/definitions/Pillar"
   MainServices:
-    type: object
+    type: "object"
     properties:
       mainService:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/MainService'
+          $ref: "#/definitions/MainService"
   UserGroup:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the user group in arabic
+        type: "string"
+        description: "Name of the user group in arabic"
       nameEn:
-        type: string
-        description: Name of the user group in english
+        type: "string"
+        description: "Name of the user group in english"
   UserGroups:
-    type: object
+    type: "object"
     properties:
       userGroup:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/UserGroup'
+          $ref: "#/definitions/UserGroup"
   CustomerSegment:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the customer segment in arabic
+        type: "string"
+        description: "Name of the customer segment in arabic"
       nameEn:
-        type: string
-        description: Name of the customer segment in english
+        type: "string"
+        description: "Name of the customer segment in english"
   CustomerSegments:
-    type: object
+    type: "object"
     properties:
       customerSegment:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/CustomerSegment'
+          $ref: "#/definitions/CustomerSegment"
   WorkingHour:
-    type: object
+    type: "object"
     properties:
       startDay:
-        type: string
-        description: Start day of the working hour
+        type: "string"
+        description: "Start day of the working hour"
       endDay:
-        type: string
-        description: End day of the working hour
+        type: "string"
+        description: "End day of the working hour"
       startTime:
-        type: string
-        description: Start time of the working hour
+        type: "string"
+        description: "Start time of the working hour"
       endTime:
-        type: string
-        description: End time of the working hour
+        type: "string"
+        description: "End time of the working hour"
   WorkingHours:
-    type: object
+    type: "object"
     properties:
       workingHour:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/WorkingHour'
+          $ref: "#/definitions/WorkingHour"
   Location:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the location in arabic
+        type: "string"
+        description: "Name of the location in arabic"
       nameEn:
-        type: string
-        description: Name of the location in english
+        type: "string"
+        description: "Name of the location in english"
       addressAr:
-        type: string
-        description: Address of the location in arabic
+        type: "string"
+        description: "Address of the location in arabic"
       addressEn:
-        type: string
-        description: Address of the location in english
+        type: "string"
+        description: "Address of the location in english"
       cityAr:
-        type: string
-        description: Name of the location city in arabic
+        type: "string"
+        description: "Name of the location city in arabic"
       cityEn:
-        type: string
-        description: Name of the location city in english
+        type: "string"
+        description: "Name of the location city in english"
       remarksAr:
-        type: string
-        description: Remarks of the location in arabic
+        type: "string"
+        description: "Remarks of the location in arabic"
       remarksEn:
-        type: string
-        description: Remarks of the location in english
+        type: "string"
+        description: "Remarks of the location in english"
       workingHours:
-        $ref: '#/definitions/WorkingHours'
+        $ref: "#/definitions/WorkingHours"
   Locations:
-    type: object
+    type: "object"
     properties:
       location:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Location'
+          $ref: "#/definitions/Location"
   Channel:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the channel in arabic
+        type: "string"
+        description: "Name of the channel in arabic"
       nameEn:
-        type: string
-        description: Name of the channel  in english
+        type: "string"
+        description: "Name of the channel  in english"
       locationType:
-        type: string
-        description: Type of the channel (traditional or digital)
+        type: "string"
+        description: "Type of the channel (traditional or digital)"
       locations:
-        $ref: '#/definitions/Locations'
+        $ref: "#/definitions/Locations"
   Channels:
-    type: object
+    type: "object"
     properties:
       channel:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Channel'
+          $ref: "#/definitions/Channel"
   Step:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the step in arabic
+        type: "string"
+        description: "Name of the step in arabic"
       nameEn:
-        type: string
-        description: Name of the step  in english
+        type: "string"
+        description: "Name of the step  in english"
       descriptionAr:
-        type: string
-        description: Description of the step in arabic
+        type: "string"
+        description: "Description of the step in arabic"
       descriptionEn:
-        type: string
-        description: Description of the step in english
+        type: "string"
+        description: "Description of the step in english"
   ProcessSteps:
-    type: object
+    type: "object"
     properties:
       processStep:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Step'
+          $ref: "#/definitions/Step"
   Fee:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the fee in arabic
+        type: "string"
+        description: "Name of the fee in arabic"
       nameEn:
-        type: string
-        description: Name of the fee  in english
+        type: "string"
+        description: "Name of the fee  in english"
       value:
-        type: number
-        description: Value of the fee
+        type: "number"
+        description: "Value of the fee"
       currencyType:
-        type: string
-        description: Currency type of the fee
+        type: "string"
+        description: "Currency type of the fee"
   Fees:
-    type: object
+    type: "object"
     properties:
       fee:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Fee'
+          $ref: "#/definitions/Fee"
   FeeGroup:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the fee group in arabic
+        type: "string"
+        description: "Name of the fee group in arabic"
       nameEn:
-        type: string
-        description: Name of the fee group in english
+        type: "string"
+        description: "Name of the fee group in english"
       fees:
-        $ref: '#/definitions/Fees'
+        $ref: "#/definitions/Fees"
   FeeGroups:
-    type: object
+    type: "object"
     properties:
       feeGroup:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/FeeGroup'
+          $ref: "#/definitions/FeeGroup"
   Document:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the document in arabic
+        type: "string"
+        description: "Name of the document in arabic"
       nameEn:
-        type: string
-        description: Name of the document  in english
+        type: "string"
+        description: "Name of the document  in english"
       descriptionAr:
-        type: string
-        description: Description of the document in arabic
+        type: "string"
+        description: "Description of the document in arabic"
       descriptionEn:
-        type: string
-        description: Description of the document in english
+        type: "string"
+        description: "Description of the document in english"
       requiresCopy:
-        type: string
-        description: Indicates if a copy of the document is needed
+        type: "string"
+        description: "Indicates if a copy of the document is needed"
       requiresOriginal:
-        type: string
-        description: Indicates if the original document is needed
+        type: "string"
+        description: "Indicates if the original document is needed"
       specialConsiderationsEn:
-        type: string
-        description: Special Considerations of the document in english
+        type: "string"
+        description: "Special Considerations of the document in english"
       specialConsiderationsAr:
-        type: string
-        description: Special Considerations of the document in arabic
+        type: "string"
+        description: "Special Considerations of the document in arabic"
   RequiredDocuments:
-    type: object
+    type: "object"
     properties:
       document:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Document'
+          $ref: "#/definitions/Document"
   Service:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the sub service in arabic
+        type: "string"
+        description: "Name of the sub service in arabic"
       nameEn:
-        type: string
-        description: Name of the sub service in english
+        type: "string"
+        description: "Name of the sub service in english"
       serviceCode:
-        type: string
-        description: Service Code of the sub service
+        type: "string"
+        description: "Service Code of the sub service"
       shortTextEn:
-        type: string
-        description: Short Text of the sub service in english
+        type: "string"
+        description: "Short Text of the sub service in english"
       shortTextAr:
-        type: string
-        description: Short Text of the sub service in arabic
+        type: "string"
+        description: "Short Text of the sub service in arabic"
       adge:
-        type: string
-        description: Abbreviation of the sub service ADGE
+        type: "string"
+        description: "Abbreviation of the sub service ADGE"
       mainServiceNameAr:
-        type: string
-        description: Name of the main service in arabic
+        type: "string"
+        description: "Name of the main service in arabic"
       mainServiceNameEn:
-        type: string
-        description: Name of the main service in english
+        type: "string"
+        description: "Name of the main service in english"
   RelatedServices:
-    type: object
+    type: "object"
     properties:
       service:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Service'
+          $ref: "#/definitions/Service"
   Link:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the link in arabic
+        type: "string"
+        description: "Name of the link in arabic"
       nameEn:
-        type: string
-        description: Name of the link in english
+        type: "string"
+        description: "Name of the link in english"
       url:
-        type: string
-        description: Url of the link
+        type: "string"
+        description: "Url of the link"
   ExternalLinks:
-    type: object
+    type: "object"
     properties:
       link:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Link'
+          $ref: "#/definitions/Link"
   Form:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the form in arabic
+        type: "string"
+        description: "Name of the form in arabic"
       nameEn:
-        type: string
-        description: Name of the form in english
+        type: "string"
+        description: "Name of the form in english"
       fileName:
-        type: string
-        description: File name of the uploaded form
+        type: "string"
+        description: "File name of the uploaded form"
       fileContent:
-        type: string
-        description: File content of the uploaded form
+        type: "string"
+        description: "File content of the uploaded form"
   ServiceForms:
-    type: object
+    type: "object"
     properties:
       form:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Form'
+          $ref: "#/definitions/Form"
   ProcessMap:
-    type: object
+    type: "object"
     properties:
       fileName:
-        type: string
-        description: File name of the uploaded process map
+        type: "string"
+        description: "File name of the uploaded process map"
       fileContent:
-        type: string
-        description: File content of the uploaded process map
+        type: "string"
+        description: "File content of the uploaded process map"
   ProcessMaps:
-    type: object
+    type: "object"
     properties:
       processMap:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/ProcessMap'
+          $ref: "#/definitions/ProcessMap"
   JourneyMap:
-    type: object
+    type: "object"
     properties:
       fileName:
-        type: string
-        description: File name of the uploaded journey map
-      FileContent:
-        type: string
-        description: File content of the uploaded journey map
+        type: "string"
+        description: "File name of the uploaded journey map"
+      fileContent:
+        type: "string"
+        description: "File content of the uploaded journey map"
   JourneyMaps:
-    type: object
+    type: "object"
     properties:
       journeyMap:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/JourneyMap'
+          $ref: "#/definitions/JourneyMap"
   Value:
-    type: object
+    type: "object"
     properties:
       value:
-        type: string
+        type: "string"
   Values:
-    type: object
+    type: "object"
     properties:
       value:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Value'
+          $ref: "#/definitions/Value"
   Attribute:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the attribute in arabic
+        type: "string"
+        description: "Name of the attribute in arabic"
       nameEn:
-        type: string
-        description: Name of the attribute in english
+        type: "string"
+        description: "Name of the attribute in english"
       type:
-        type: string
-        description: Type of the attribute
+        type: "string"
+        description: "Type of the attribute"
       values:
-        $ref: '#/definitions/Values'
+        $ref: "#/definitions/Values"
   Attributes:
-    type: object
+    type: "object"
     properties:
       attribute:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Attribute'
+          $ref: "#/definitions/Attribute"
   Section:
-    type: object
+    type: "object"
     properties:
       nameAr:
-        type: string
-        description: Name of the section in arabic
+        type: "string"
+        description: "Name of the section in arabic"
       nameEn:
-        type: string
-        description: Name of the section in english
+        type: "string"
+        description: "Name of the section in english"
       attributes:
-        $ref: '#/definitions/Attributes'
+        $ref: "#/definitions/Attributes"
   Sections:
-    type: object
+    type: "object"
     properties:
       section:
-        type: array
+        type: "array"
         items:
-          $ref: '#/definitions/Section'
+          $ref: "#/definitions/Section"
   OtherAttributes:
-    type: object
+    type: "object"
     properties:
       sections:
-        $ref: '#/definitions/Sections'
+        $ref: "#/definitions/Sections"
