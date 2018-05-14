@@ -1,0 +1,584 @@
+swagger: '2.0'
+info:
+  description: No description
+  version: 1.0.0
+  title: ServiceCardAPI
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /servicecard/subservices:
+    get:
+      parameters:
+        - name: creationDate
+          in: query
+          required: false
+          type: string
+          format: date
+          description: Creation date  of the sub services
+        - name: adge
+          in: query
+          required: false
+          type: string
+          description: ADGE Abbreviation
+        - name: serviceCode
+          in: query
+          required: false
+          type: string
+          description: Service Code
+        - name: locationToken
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: Status 200
+          schema:
+            type: object
+            properties:
+              adges:
+                $ref: '#/definitions/ADGEs'
+definitions:
+  SubService:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the sub service in arabic
+      nameEn:
+        type: string
+        description: Name of the sub service in english
+      serviceCode:
+        type: string
+        description: Service Code
+      descriptionAr:
+        type: string
+        description: Description of the sub service in arabic
+      descriptionEn:
+        type: string
+        description: Description of the sub service in english
+      creationDate:
+        type: string
+        format: date
+        description: CreationDate of the sub service
+      isGeneralPublicService:
+        type: boolean
+        description: Indicates if the subservice is a general public service
+      shortTextAr:
+        type: string
+        description: Short Text of the sub service in arabic
+      shortTextEn:
+        type: string
+        description: Short Text of the sub service in english
+      serviceTermsAndConditionsAr:
+        type: string
+        description: Service Terms and Conditions of the sub service in arabic
+      serviceTermsAndConditionsEn:
+        type: string
+        description: Service Terms and Conditions of the sub service in english
+      channels:
+        $ref: '#/definitions/Channels'
+      processSteps:
+        $ref: '#/definitions/ProcessSteps'
+      feeGroups:
+        $ref: '#/definitions/FeeGroups'
+      requiredDocuments:
+        $ref: '#/definitions/RequiredDocuments'
+      relatedServices:
+        $ref: '#/definitions/RelatedServices'
+      externalLinks:
+        $ref: '#/definitions/ExternalLinks'
+      serviceForms:
+        $ref: '#/definitions/ServiceForms'
+      processMaps:
+        $ref: '#/definitions/ProcessMaps'
+      journeyMaps:
+        $ref: '#/definitions/JourneyMaps'
+      otherAttributes:
+        $ref: '#/definitions/OtherAttributes'
+  ADGE:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the ADGE in english
+      nameEn:
+        type: string
+        description: Name of the ADGE in arabic
+      descriptionAr:
+        type: string
+        description: Description of the ADGE in arabic
+      descriptionEn:
+        type: string
+        description: Description of the ADGE in english
+      aspectsOfLife:
+        $ref: '#/definitions/AspectsOfLife'
+      pillars:
+        $ref: '#/definitions/Pillars'
+      mainServices:
+        $ref: '#/definitions/MainServices'
+  AspectOfLife:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the aspect of life in arabic
+      nameEn:
+        type: string
+        description: Name of the aspect of life in english
+      subtopics:
+        $ref: '#/definitions/Subtopics'
+      mainServices:
+        $ref: '#/definitions/MainServices'
+  Subtopic:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the subtopic in arabic
+      nameEn:
+        type: string
+        description: Name of the subtopic in english
+      mainServices:
+        $ref: '#/definitions/MainServices'
+  MainService:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the main service in arabic
+      nameEn:
+        type: string
+        description: Name of the main service in english
+      descriptionAr:
+        type: string
+        description: Description of the main service in arabic
+      descriptionEn:
+        type: string
+        description: Description of the main service in english
+      subservices:
+        $ref: '#/definitions/Subservices'
+      pillars:
+        $ref: '#/definitions/Pillars'
+  ADGEs:
+    type: object
+    properties:
+      adge:
+        type: array
+        items:
+          $ref: '#/definitions/ADGE'
+  Subservices:
+    type: object
+    properties:
+      subservice:
+        type: array
+        items:
+          $ref: '#/definitions/SubService'
+  AspectsOfLife:
+    type: object
+    properties:
+      aspectOfLife:
+        type: array
+        items:
+          $ref: '#/definitions/AspectOfLife'
+  Subtopics:
+    type: object
+    properties:
+      subtopic:
+        type: array
+        items:
+          $ref: '#/definitions/Subtopic'
+  Pillar:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the pillar in arabic
+      nameEn:
+        type: string
+        description: Name of the pillar in english
+  Pillars:
+    type: object
+    properties:
+      pillar:
+        type: array
+        items:
+          $ref: '#/definitions/Pillar'
+  MainServices:
+    type: object
+    properties:
+      mainService:
+        type: array
+        items:
+          $ref: '#/definitions/MainService'
+  UserGroup:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the user group in arabic
+      nameEn:
+        type: string
+        description: Name of the user group in english
+  UserGroups:
+    type: object
+    properties:
+      userGroup:
+        type: array
+        items:
+          $ref: '#/definitions/UserGroup'
+  CustomerSegment:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the customer segment in arabic
+      nameEn:
+        type: string
+        description: Name of the customer segment in english
+  CustomerSegments:
+    type: object
+    properties:
+      customerSegment:
+        type: array
+        items:
+          $ref: '#/definitions/CustomerSegment'
+  WorkingHour:
+    type: object
+    properties:
+      startDay:
+        type: string
+        description: Start day of the working hour
+      endDay:
+        type: string
+        description: End day of the working hour
+      startTime:
+        type: string
+        description: Start time of the working hour
+      endTime:
+        type: string
+        description: End time of the working hour
+  WorkingHours:
+    type: object
+    properties:
+      workingHour:
+        type: array
+        items:
+          $ref: '#/definitions/WorkingHour'
+  Location:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the location in arabic
+      nameEn:
+        type: string
+        description: Name of the location in english
+      addressAr:
+        type: string
+        description: Address of the location in arabic
+      addressEn:
+        type: string
+        description: Address of the location in english
+      cityAr:
+        type: string
+        description: Name of the location city in arabic
+      cityEn:
+        type: string
+        description: Name of the location city in english
+      remarksAr:
+        type: string
+        description: Remarks of the location in arabic
+      remarksEn:
+        type: string
+        description: Remarks of the location in english
+      workingHours:
+        $ref: '#/definitions/WorkingHours'
+  Locations:
+    type: object
+    properties:
+      location:
+        type: array
+        items:
+          $ref: '#/definitions/Location'
+  Channel:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the channel in arabic
+      nameEn:
+        type: string
+        description: Name of the channel  in english
+      locationType:
+        type: string
+        description: Type of the channel (traditional or digital)
+      locations:
+        $ref: '#/definitions/Locations'
+  Channels:
+    type: object
+    properties:
+      channel:
+        type: array
+        items:
+          $ref: '#/definitions/Channel'
+  Step:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the step in arabic
+      nameEn:
+        type: string
+        description: Name of the step  in english
+      descriptionAr:
+        type: string
+        description: Description of the step in arabic
+      descriptionEn:
+        type: string
+        description: Description of the step in english
+  ProcessSteps:
+    type: object
+    properties:
+      processStep:
+        type: array
+        items:
+          $ref: '#/definitions/Step'
+  Fee:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the fee in arabic
+      nameEn:
+        type: string
+        description: Name of the fee  in english
+      value:
+        type: number
+        description: Value of the fee
+      currencyType:
+        type: string
+        description: Currency type of the fee
+  Fees:
+    type: object
+    properties:
+      fee:
+        type: array
+        items:
+          $ref: '#/definitions/Fee'
+  FeeGroup:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the fee group in arabic
+      nameEn:
+        type: string
+        description: Name of the fee group in english
+      fees:
+        $ref: '#/definitions/Fees'
+  FeeGroups:
+    type: object
+    properties:
+      feeGroup:
+        type: array
+        items:
+          $ref: '#/definitions/FeeGroup'
+  Document:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the document in arabic
+      nameEn:
+        type: string
+        description: Name of the document  in english
+      descriptionAr:
+        type: string
+        description: Description of the document in arabic
+      descriptionEn:
+        type: string
+        description: Description of the document in english
+      requiresCopy:
+        type: string
+        description: Indicates if a copy of the document is needed
+      requiresOriginal:
+        type: string
+        description: Indicates if the original document is needed
+      specialConsiderationsEn:
+        type: string
+        description: Special Considerations of the document in english
+      specialConsiderationsAr:
+        type: string
+        description: Special Considerations of the document in arabic
+  RequiredDocuments:
+    type: object
+    properties:
+      document:
+        type: array
+        items:
+          $ref: '#/definitions/Document'
+  Service:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the sub service in arabic
+      nameEn:
+        type: string
+        description: Name of the sub service in english
+      serviceCode:
+        type: string
+        description: Service Code of the sub service
+      shortTextEn:
+        type: string
+        description: Short Text of the sub service in english
+      shortTextAr:
+        type: string
+        description: Short Text of the sub service in arabic
+      adge:
+        type: string
+        description: Abbreviation of the sub service ADGE
+      mainServiceNameAr:
+        type: string
+        description: Name of the main service in arabic
+      mainServiceNameEn:
+        type: string
+        description: Name of the main service in english
+  RelatedServices:
+    type: object
+    properties:
+      service:
+        type: array
+        items:
+          $ref: '#/definitions/Service'
+  Link:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the link in arabic
+      nameEn:
+        type: string
+        description: Name of the link in english
+      url:
+        type: string
+        description: Url of the link
+  ExternalLinks:
+    type: object
+    properties:
+      link:
+        type: array
+        items:
+          $ref: '#/definitions/Link'
+  Form:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the form in arabic
+      nameEn:
+        type: string
+        description: Name of the form in english
+      fileName:
+        type: string
+        description: File name of the uploaded form
+      fileContent:
+        type: string
+        description: File content of the uploaded form
+  ServiceForms:
+    type: object
+    properties:
+      form:
+        type: array
+        items:
+          $ref: '#/definitions/Form'
+  ProcessMap:
+    type: object
+    properties:
+      fileName:
+        type: string
+        description: File name of the uploaded process map
+      fileContent:
+        type: string
+        description: File content of the uploaded process map
+  ProcessMaps:
+    type: object
+    properties:
+      processMap:
+        type: array
+        items:
+          $ref: '#/definitions/ProcessMap'
+  JourneyMap:
+    type: object
+    properties:
+      fileName:
+        type: string
+        description: File name of the uploaded journey map
+      FileContent:
+        type: string
+        description: File content of the uploaded journey map
+  JourneyMaps:
+    type: object
+    properties:
+      journeyMap:
+        type: array
+        items:
+          $ref: '#/definitions/JourneyMap'
+  Value:
+    type: object
+    properties:
+      value:
+        type: string
+  Values:
+    type: object
+    properties:
+      value:
+        type: array
+        items:
+          $ref: '#/definitions/Value'
+  Attribute:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the attribute in arabic
+      nameEn:
+        type: string
+        description: Name of the attribute in english
+      type:
+        type: string
+        description: Type of the attribute
+      values:
+        $ref: '#/definitions/Values'
+  Attributes:
+    type: object
+    properties:
+      attribute:
+        type: array
+        items:
+          $ref: '#/definitions/Attribute'
+  Section:
+    type: object
+    properties:
+      nameAr:
+        type: string
+        description: Name of the section in arabic
+      nameEn:
+        type: string
+        description: Name of the section in english
+      attributes:
+        $ref: '#/definitions/Attributes'
+  Sections:
+    type: object
+    properties:
+      section:
+        type: array
+        items:
+          $ref: '#/definitions/Section'
+  OtherAttributes:
+    type: object
+    properties:
+      sections:
+        $ref: '#/definitions/Sections'
